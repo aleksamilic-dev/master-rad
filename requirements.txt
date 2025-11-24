@@ -1,0 +1,38 @@
+# Audio Processing
+librosa>=0.10.0
+soundfile>=0.12.0
+openai-whisper>=20230314
+pyaudio>=0.2.13
+
+# Deep Learning
+tensorflow>=2.13.0
+
+# Data Processing and ML
+numpy>=1.24.0
+scikit-learn>=1.3.0
+pandas>=2.0.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# CLI and UI
+rich>=13.0.0
+tqdm>=4.65.0
+
+# Testing
+pytest>=7.4.0
+
+# Configuration
+pyyaml>=6.0
+
+# HTTP Requests (for Groq API)
+requests>=2.31.0
+
+# Note: System dependencies required (install separately):
+# - build-essential (for compiling pyaudio)
+# - portaudio19-dev (for pyaudio)
+# - python3-dev (for compiling Python extensions)
+# - python3-tk (for GUI - tkinter)
+# 
+# Install with: sudo apt-get install build-essential portaudio19-dev python3-dev python3-tk

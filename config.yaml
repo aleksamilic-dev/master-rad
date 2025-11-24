@@ -1,0 +1,75 @@
+audio:
+  max_duration: 10
+  target_sample_rate: 16000
+cnn_model:
+  dense_units: 128
+  dropout_rate: 0.5
+  filters:
+  - 32
+  - 64
+  - 128
+  kernel_size:
+  - 3
+  - 3
+  pool_size:
+  - 2
+  - 2
+dataset:
+  max_sequence_length: 100
+  test_split: 0.15
+  train_split: 0.7
+  val_split: 0.15
+features:
+  hop_length: 512
+  n_fft: 2048
+  n_mels: 128
+  n_mfcc: 40
+hybrid_cnn_rnn_model:
+  cnn_filters:
+  - 32
+  - 64
+  dense_units: 64
+  dropout_rate: 0.3
+  lstm_units:
+  - 128
+  - 64
+languages:
+- english
+- serbian
+- german
+- spanish
+- french
+rnn_model:
+  dense_units: 64
+  dropout_rate: 0.3
+  lstm_units: 128
+  num_lstm_layers: 2
+svm_model:
+  C: 1.0
+  gamma: auto
+  kernel: rbf
+training:
+  batch_size: 64
+  early_stopping_patience: 10
+  epochs: 30
+  learning_rate: 0.001
+wav2vec_model:
+  dense_units: 64
+  dropout_rate: 0.3
+  lstm_units: 128
+whisper:
+  chunk_duration: 5.0 # Optimalno za whisper-large-v3-turbo: 2-5 sekundi (3.0 je balans između brzine i tačnosti)
+  min_confidence: 0.25
+  model_size: medium
+  sample_rate: 16000  # Whisper očekuje tačno 16 kHz
+  silence_threshold: 0.005
+groq:
+  api_key: "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"  # Add your Groq API key here, or set GROQ_API_KEY environment variable
+  model: whisper-large-v3-turbo  # whisper-large-v3-turbo (najbrži) ili whisper-large-v3
+  temperature: 0.0  # 0.0 za determinističke rezultate (preporučeno), 0.0-1.0 opseg
+  # Audio capture postavke (koriste se za snimanje sa mikrofona):
+  chunk_duration: 3.0  # Optimalno za real-time: 2-5 sekundi (3.0 je balans brzine i tačnosti)
+  sample_rate: 16000  # Obavezno: 16000 Hz (optimalno za Whisper)
+  silence_threshold: 0.005  # Prag za detekciju tišine (malo viši za Groq API)
+  min_confidence: 0.3  # Minimalna pouzdanost rezultata (0.3 je dobar prag)
+  # Napomena: Za duže audio fajlove (>10 min), preporučuje se segmentacija na delove od 10 minuta sa 10s preklapanjem 
